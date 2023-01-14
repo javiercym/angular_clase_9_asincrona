@@ -1,0 +1,30 @@
+
+<div class="container">
+    <div>
+        <label for="num1">Ingrese primer valor: </label>
+        <input class="form-control" [(ngModel)]="num1" type="number" id="num1">
+    </div>
+    <br>
+    <div>
+        <label for="num1">Ingrese segundo valor: </label>
+        <input  class="form-control" [(ngModel)]="num2" type="number" id="num1">
+    </div>
+    <br>
+    <div>
+      <select [(ngModel)]="operacion" class="form-select" aria-label="Default select example">
+        <option selected>Elija una opción</option>
+        <option value="1">Suma</option>
+        <option value="2">Resta</option>
+        <option value="3">Multiplicacion</option>
+        <option value="4">division</option>
+      </select>
+    </div>
+    <br>
+    <div  [ngSwitch]="operacion">
+        <p *ngSwitchCase="'Elija una opción'" [ngStyle]="{'color': '#C501E2'}">Resultado: {{ resul }}</p>
+        <p *ngSwitchCase="1" [ngStyle]="{'color': '#E7C500'}">Resultado: {{ num1 + num2 }}</p>
+        <p *ngSwitchCase="2" [ngStyle]="{'color': '#2EF8A0'}">Resultado: {{ num1 - num2 }}</p>
+        <p *ngSwitchCase="3" [ngStyle]="{'color': '#F82D97'}">Resultado: {{ num1 * num2 }}</p>
+        <p *ngSwitchCase="4" [ngStyle]="{'color': '#37023A'}">Resultado: {{ num1 / num2 }}</p>
+    </div>
+</div>
